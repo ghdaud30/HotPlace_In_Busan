@@ -18,7 +18,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Entity
 @Builder
-public class HotPlace_Kor {
+public class HotPlaceKor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

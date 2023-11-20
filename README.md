@@ -1,9 +1,9 @@
 # 2030 부산 월드 엑스포 외국인 맛집 정보 제공 프로젝트 
- 부산 외국인 관괭객을 위한 맛집 정보 제공 프로젝트 입니다
+![20230329000279_0](https://github.com/ghdaud30/HotPlace_In_Busan/assets/54072339/6094771f-941b-48a4-8e1a-2026bb4f17cf)
 
 ## 프로젝트 개요
 2030 부산 엑스포 개최를 희망하며 , 부산을 방문하는 외국인 관광객들을 위한 맛집 정보를 제공 사이트 
-한국어와 영어 2개 언어를 지원합니다
+한국어와 영어 2개 언어를 지원합니다!!
 
 ## 프로젝트 역할
 - K-Digital 부산대학교 - 4회차] AI 활용 빅데이터분석 풀스택웹서비스 SW 개발자 양성과정     
@@ -16,7 +16,9 @@
 
  - 2023-11-20 
    - 회원가입 기능 구현 
-      - Json(ResponseEntity , @RequestBody)
+      - Json (ResponseEntity , @RequestBody)
+   - 비밀번호 암호화 추가(Security)
+      - PasswordEncoder , BCryptPasswordEncoder
 ---
 ### 실행환경
  - SpringBoot

@@ -20,10 +20,8 @@ import lombok.ToString;
 @ToString
 public class Member {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
-	private Long id;
+	private String username;
 	
-	private String account;
 	private String password;
 	private String nickname;
 	private String telephone;

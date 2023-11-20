@@ -16,7 +16,7 @@
 
  - 2023-11-20 
    - 회원가입 기능 구현 
-      - ResponseEntity , @RequestBody
+      - Json(ResponseEntity , @RequestBody)
 ---
 ### 실행환경
  - SpringBoot

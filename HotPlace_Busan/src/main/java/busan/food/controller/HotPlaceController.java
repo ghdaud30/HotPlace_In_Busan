@@ -20,22 +20,22 @@ public class HotPlaceController {
 	
 	// PostMan 으로 확인
 	
-	// 회원 가입 메소드(파라메터) - 1
-	@PostMapping("/signUp")
-	public ResponseEntity<?> singUp(MemberFormDTO memberFormDTO) {
-		Member member = hotPlaceService.sign(memberFormDTO);
-		
-		if(member != null) {
-			System.out.println("memberId : " + member);
-			return ResponseEntity.ok("success");
-		}
-		System.out.println("Error");
-			
-		return ResponseEntity.badRequest().body("fail");
-	}
+//	// 회원 가입 메소드(Parameter) - 1
+//	@PostMapping("/signUp")
+//	public ResponseEntity<?> singUp(MemberFormDTO memberFormDTO) {
+//		Member member = hotPlaceService.sign(memberFormDTO);
+//		
+//		if(member != null) {
+//			System.out.println("memberId : " + member);
+//			return ResponseEntity.ok("success");
+//		}
+//		System.out.println("Error");
+//			
+//		return ResponseEntity.badRequest().body("fail");
+//	}
 	
 	// 회원 가입 메소드(Json) - 2
-	@PostMapping("/signUp2")
+	@PostMapping("/signUp")
 	public ResponseEntity<?> singUp2(@RequestBody MemberFormDTO memberFormDTO){
 		Member member = hotPlaceService.sign(memberFormDTO);
 		

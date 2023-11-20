@@ -15,7 +15,7 @@ public class HotPlaceServicelmpl implements HotPlaceService{
 	@Override
 	public Member sign(MemberFormDTO MemberFormDTO) {
 		Member member = Member.builder()
-				.account(MemberFormDTO.getAccount())
+				.username(MemberFormDTO.getUsername())
 				.password(MemberFormDTO.getPassword())
 				.nickname(MemberFormDTO.getNickname())
 				.telephone(MemberFormDTO.getTelephone())

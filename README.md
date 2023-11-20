@@ -8,6 +8,7 @@
 ## 프로젝트 진행 상황
  - [Team SeaGull](https://www.notion.so/2023-9a0cd2e5323d401cab9db29c49586519)
 
+ - 2023-11-20 회원가입 구현
 ---
 ### 실행환경
  - SpringBoot

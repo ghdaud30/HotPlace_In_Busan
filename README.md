@@ -19,6 +19,9 @@
       - Json (ResponseEntity , @RequestBody)
    - 비밀번호 암호화 추가(Security)
       - PasswordEncoder , BCryptPasswordEncoder
+      
+ - 2023-11-21
+   - 회원 가입 시 아이디, 닉네임 , 이메일 중복 검증 구현
 ---
 ### 실행환경
  - SpringBoot

@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor	
-public class HotPlaceController {
+public class SignUpController {
 	
 	@Autowired
 	HotPlaceService hotPlaceService;

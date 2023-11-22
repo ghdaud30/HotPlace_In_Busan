@@ -18,4 +18,5 @@ public interface HotPlaceService {
      
      // 닉네임 중복 여부 검증 함수
      public boolean validationNickname(Member MemberFormDTO);
+     
 }

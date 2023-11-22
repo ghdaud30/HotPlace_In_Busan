@@ -7,7 +7,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import busan.food.domain.Member;
-import busan.food.domain.MemberFormDTO;
 import busan.food.repogitory.MemberRepository;
 
 @Service
@@ -21,7 +20,7 @@ public class HotPlaceServicelmpl implements HotPlaceService {
 
 	// 회원 가입 함수
 	@Override
-	public Member sign(MemberFormDTO MemberFormDTO) {
+	public Member sign(Member MemberFormDTO) {
 		String password = MemberFormDTO.getPassword();
 
 		Member member = Member.builder().username(MemberFormDTO.getUsername()).password(encoder.encode(password))
@@ -32,7 +31,7 @@ public class HotPlaceServicelmpl implements HotPlaceService {
 
 	// 아이디 중복 검증 함수
 	@Override
-	public boolean validatonID(MemberFormDTO MemberFormDTO) {
+	public boolean validatonID(Member MemberFormDTO) {
 		String userName = MemberFormDTO.getUsername();
 		Optional<Member> member = memberRepository.findByUsername(userName);
 
@@ -47,7 +46,7 @@ public class HotPlaceServicelmpl implements HotPlaceService {
 	
 	// 이메일 중복 검증 함수
 	@Override
-	public boolean validatonEmail(MemberFormDTO MemberFormDTO) {
+	public boolean validatonEmail(Member MemberFormDTO) {
 		String email = MemberFormDTO.getEmail();
 		Optional<Member> member = memberRepository.findByEmail(email);
 
@@ -62,7 +61,7 @@ public class HotPlaceServicelmpl implements HotPlaceService {
 	
 	// 닉네임 중복 검증 함수
 	@Override
-	public boolean validationNickname(MemberFormDTO MemberFormDTO) {
+	public boolean validationNickname(Member MemberFormDTO) {
 		String nickname = MemberFormDTO.getNickname();
 		Optional<Member> member = memberRepository.findByNickname(nickname);
 

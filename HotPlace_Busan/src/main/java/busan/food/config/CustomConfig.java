@@ -19,7 +19,11 @@ public class CustomConfig {
 		config.addAllowedHeader(CorsConfiguration.ALL); // 교차를 허용할 Header
 		config.setAllowCredentials(true); // 요청/응답에 자격증명정보 포함을 허용
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		
+		// 프론트와 통신을 위하여
+		config.addExposedHeader("Authorization"); // "Authorization" 헤더를 클라이언트에게 노출하도록 설정
 		source.registerCorsConfiguration("/**", config); // 교차를 허용할 Origin의 URL
+		
 		return new CorsFilter(source);
 	}
 }

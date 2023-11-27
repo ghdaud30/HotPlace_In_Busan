@@ -31,7 +31,6 @@ public class Reviews {
 	private String picture;
 	private int score;
 	
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date data;
 }

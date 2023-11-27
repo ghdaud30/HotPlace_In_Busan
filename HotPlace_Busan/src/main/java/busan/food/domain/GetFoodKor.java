@@ -32,7 +32,7 @@ public class GetFoodKor {
 	private String cntctTel;
 	private String homepageUrl;
 	private String usageDayWeekAndTime;
-	private String rprsntvMenu;
+	private String rprsntvmenu;
 	private String mainImgNormal;
 	private String mainImgThumb;
 	private String itemcntnts;

@@ -34,5 +34,5 @@ public class Reviews {
 	private int score;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	private Date data;
+	private Date date;
 }

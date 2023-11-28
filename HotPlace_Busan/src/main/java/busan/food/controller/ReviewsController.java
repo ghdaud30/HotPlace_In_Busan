@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,7 +39,7 @@ public class ReviewsController {
 		}
 	}
 	
-	// 리뷰 조회 메서드
+	// 맛집 리뷰 조회 메서드
 	@GetMapping("/api/reviews/selecting")
 	public ResponseEntity<?> reviewsSelecting() {
 		try {
@@ -48,6 +49,25 @@ public class ReviewsController {
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 			return ResponseEntity.badRequest().body("Selecting Failure");
+		}
+	}
+	
+	// 맛집 리뷰 수정 메서드
+	@PutMapping("/api/reviews/updating")
+	public ResponseEntity<?> reviewsUpdating(@RequestBody Reviews reviews) {
+		try {
+			int num = reviewsService.reviewsUpdating(reviews);
+			
+			if( num == 1) {
+				return ResponseEntity.ok().body(reviews);
+			}
+			else {
+				return ResponseEntity.badRequest().body("Updating Failure");
+			}
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+			return ResponseEntity.badRequest().body("Updating Failure");
 		}
 	}
 }

@@ -1,6 +1,6 @@
 package busan.food.service;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +22,7 @@ public class ReviewsServicelmpl implements ReviewsService{
 	private MemberRepository memberRepository;
 	
 	// 맛집 리뷰 생성 메서드
+	@Override
 	public Reviews reviewsAdding(Reviews reviews) throws Exception{
 		String userName = reviews.getMember().getUsername();
 		Optional<Member> member = memberRepository.findByUsername(userName);
@@ -35,6 +36,7 @@ public class ReviewsServicelmpl implements ReviewsService{
 	}
 
 	// 맛집 리뷰 조회 메서드
+	@Override
 	public List<Reviews> reviewsSelecting (){
 		
 		List<Reviews> list = reviewsRepository.findAll();
@@ -45,5 +47,26 @@ public class ReviewsServicelmpl implements ReviewsService{
 		}
 		System.out.println("리뷰가 DB에 없습니다");
 		return null;
+	}
+	
+	// 맛집 리뷰 수정 메서드
+	@Override
+	public int reviewsUpdating(Reviews reviews){
+		Optional<Reviews> optionalReview = reviewsRepository.findById(reviews.getIdx());
+	    
+	    if (optionalReview.isPresent()) {
+	        Reviews findReview = optionalReview.get();
+	        findReview.setContent(reviews.getContent());
+	        findReview.setPicture(reviews.getPicture());
+	        findReview.setScore(reviews.getScore());
+	        findReview.setDate(new Date());
+	        
+	        reviewsRepository.save(findReview);
+	        
+	        System.out.println("리뷰 수정에 성공하였습니다");
+	        return 1;
+	    }
+		System.out.println("리뷰 수정에 실패하였습니다");
+		return -1;
 	}
 }

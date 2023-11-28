@@ -17,7 +17,7 @@ public interface ReviewsService {
 	
 	// 맛집 리뷰 수정 메서드
 	
-	
+	public int reviewsUpdating(Reviews reviews);
 	
 	// 맛집 리뷰 삭제 메서드
 	

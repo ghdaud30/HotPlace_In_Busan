@@ -22,15 +22,32 @@ public class ReviewsController {
 	
 	// 리뷰 생성 메서드
 	@PostMapping("/api/reviews/adding")
-	public ResponseEntity<?> reviewsCreating(@RequestBody Reviews reviews) {
+	public ResponseEntity<?> reviewsAdding(@RequestBody Reviews reviews) {
 		try {
 			Reviews review = reviewsService.reviewsAdding(reviews);
-			return ResponseEntity.ok().body("Creating Success");
+			if(review != null) {
+				System.out.println("리뷰를 등록 하였습니다");
+				return ResponseEntity.ok().body(review);
+			}
+			System.out.println("리뷰 등록에 실패 하였습니다");
+			return ResponseEntity.badRequest().body("Adding Failure");
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
-			return ResponseEntity.badRequest().body("Creating Failure");
+			return ResponseEntity.badRequest().body("Adding Failure");
 		}
 	}
 	
+	// 리뷰 조회 메서드
+	@GetMapping("/api/reviews/selecting")
+	public ResponseEntity<?> reviewsSelecting() {
+		try {
+			List<Reviews> list = reviewsService.reviewsSelecting();
+			return ResponseEntity.ok().body(list);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+			return ResponseEntity.badRequest().body("Selecting Failure");
+		}
+	}
 }

@@ -13,7 +13,7 @@ public interface ReviewsService {
 	public Reviews reviewsAdding(Reviews reviews) throws Exception;
 	
 	// 맛집 리뷰 조회 메서드
-	
+	public List<Reviews> reviewsSelecting();
 	
 	// 맛집 리뷰 수정 메서드
 	

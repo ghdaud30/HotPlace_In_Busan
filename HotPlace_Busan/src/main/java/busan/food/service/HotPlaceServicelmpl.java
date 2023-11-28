@@ -22,7 +22,14 @@ public class HotPlaceServicelmpl implements HotPlaceService {
 	@Override
 	public Member sign(Member MemberFormDTO) {
 		String password = MemberFormDTO.getPassword();
-
+		String userName = MemberFormDTO.getUsername();
+		Optional<Member> memberUserName = memberRepository.findByUsername(userName);
+		
+		if(memberUserName.isPresent()) {
+			System.out.println("아이디가 이미 등록되어 있습니다");
+			return null;
+		}
+		
 		Member member = Member.builder().username(MemberFormDTO.getUsername()).password(encoder.encode(password))
 				.nickname(MemberFormDTO.getNickname()).telephone(MemberFormDTO.getTelephone())
 				.email(MemberFormDTO.getEmail()).build();

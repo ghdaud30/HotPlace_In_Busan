@@ -21,7 +21,7 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "member") // 순환 참조 문제를 해결하기 위해서
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity

@@ -69,4 +69,17 @@ public class ReviewsServicelmpl implements ReviewsService{
 		System.out.println("리뷰 수정에 실패하였습니다");
 		return -1;
 	}
+	
+	// 맛집 리뷰 삭제 메서드
+	@Override
+	public int reviewsDeleting(Reviews reviews) {
+		Optional<Reviews> idx = reviewsRepository.findById(reviews.getIdx());
+		
+		if(idx.isPresent()){
+			reviewsRepository.deleteById(reviews.getIdx());
+			return 1;
+		}
+		
+		return -1;
+	}
 }

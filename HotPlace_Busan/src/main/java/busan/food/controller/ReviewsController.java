@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -68,6 +69,27 @@ public class ReviewsController {
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 			return ResponseEntity.badRequest().body("Updating Failure");
+		}
+	}
+	
+	// 맛집 리뷰 삭제 메서드
+	@DeleteMapping("/api/reviews/deleting")
+	public ResponseEntity<?> reviewsDeleting(@RequestBody Reviews reviews) {
+		try {
+			int num = reviewsService.reviewsDeleting(reviews);
+			if(num == 1) {
+				System.out.println("리뷰 삭제에 성공하였습니다");
+				return ResponseEntity.ok().body("Deleting Success");
+			}
+			else {
+				System.out.println("리뷰 삭제에 실패하였습니다");
+				return ResponseEntity.badRequest().body("Deleting Failure");
+			}
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println("리뷰 삭제에 실패하였습니다");
+			return ResponseEntity.badRequest().body("Deleting Failure");
 		}
 	}
 }

@@ -1,11 +1,13 @@
 package busan.food.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Temporal;
@@ -23,7 +25,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Builder
 @Entity
-@ToString
+@ToString(exclude="ReviewsList") // 순환 참조 문제를 해결하기 위해서
 public class Member {
 	@Id
 	private String username;
@@ -37,4 +39,7 @@ public class Member {
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	@Builder.Default
 	private Date date = new Date();
+	
+	@OneToMany(mappedBy="member", fetch=FetchType.EAGER)
+	private List<Reviews> ReviewsList = new ArrayList<>();
 }
